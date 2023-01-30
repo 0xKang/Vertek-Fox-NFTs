@@ -1,0 +1,10 @@
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+@import './components/general.scss';
+@import './components/minting-dapp.scss';
+
+body {
+  background: #161626 url("../images/bg.png") no-repeat fixed center;
+}
