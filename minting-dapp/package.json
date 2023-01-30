@@ -37,5 +37,10 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "react-particles": "^2.8.0",
+        "react-tsparticles": "^2.8.0",
+        "tsparticles": "^2.8.0"
     }
 }

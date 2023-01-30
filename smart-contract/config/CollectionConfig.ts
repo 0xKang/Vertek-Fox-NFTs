@@ -13,7 +13,7 @@ const CollectionConfig: CollectionConfigInterface = {
   tokenName: 'VERTEK FOX',
   tokenSymbol: 'VFOX',
   hiddenMetadataUri: 'ipfs://bafybeied4mz3at4psihbidp3szndfdjgwnjrn2ti6coir34v634kfkfcfi/hidden.json',
-  maxSupply: 100,
+  maxSupply: 1000,
   whitelistSale: {
     price: 0.5,
     maxMintAmountPerTx: 1,

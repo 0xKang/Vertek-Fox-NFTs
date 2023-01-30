@@ -5,6 +5,20 @@
 @import './components/general.scss';
 @import './components/minting-dapp.scss';
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
 body {
   background: #161626 url("../images/bg.png") no-repeat fixed center;
+  animation: animatedBackground 10s linear infinite alternate;
+}
+
+.particles-background {
+  z-index: -1;
 }

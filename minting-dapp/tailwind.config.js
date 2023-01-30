@@ -21,8 +21,8 @@ module.exports = {
         },
         loading_spinner: colors.indigo[500],
         popups: {
-          bg: colors.white,
-          txt: '#4D3FEC',
+          bg: '#4D3FEC',
+          txt: colors.white,
           internal_border: colors.slate[200],
         },
         warning: {
