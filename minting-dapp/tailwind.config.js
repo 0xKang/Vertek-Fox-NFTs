@@ -16,7 +16,7 @@ module.exports = {
         },
         titles: '#4D3FEC',
         links: {
-          txt: '#4D3FEC',
+          txt: colors.white,
           hover_txt: '#362BA8',
         },
         loading_spinner: colors.indigo[500],
@@ -63,13 +63,13 @@ module.exports = {
         },
         label: '#4D3FEC',
         txt_input: {
-          txt: '#4D3FEC',
+          txt: colors.white,
           bg: colors.white,
           border: colors.slate[200],
-          focus_txt: '#4D3FEC',
+          focus_txt: colors.white,
           focus_bg: colors.slate[50],
           focus_border: colors.indigo[300],
-          placeholder_txt: '#4D3FEC',
+          placeholder_txt: colors.white,
         },
         
         // Whitelist proof widget
