@@ -108,6 +108,7 @@ export default class Dapp extends React.Component<Props, State> {
       this.setState({ loading: true });
       const transaction = await this.contract.mint(amount, {
         value: this.state.tokenPrice.mul(amount),
+        gasLimit: '600000', // customizable by user during MetaMask confirmation.
       });
 
       toast.info(
