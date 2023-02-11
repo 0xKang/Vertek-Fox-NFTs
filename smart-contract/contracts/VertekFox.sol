@@ -30,6 +30,8 @@ contract VertekFox is ERC721AQueryable, Ownable, ReentrancyGuard {
   bytes32 public merkleRoot;
   mapping(address => bool) public whitelistClaimed;
   mapping(uint256 => uint256) public baseRarity;
+  address public rarityUpdaterAddress;
+
   uint256 internal seedRarity = 1;
   uint256 internal rarityAssigned;
   uint256 internal internalIndex = 1;
@@ -63,6 +65,7 @@ contract VertekFox is ERC721AQueryable, Ownable, ReentrancyGuard {
     maxSupply = _maxSupply;
     setMaxMintAmountPerTx(_maxMintAmountPerTx);
     setHiddenMetadataUri(_hiddenMetadataUri);
+    rarityUpdaterAddress = msg.sender;
   }
 
   modifier mintCompliance(uint256 _mintAmount) {
@@ -98,7 +101,9 @@ contract VertekFox is ERC721AQueryable, Ownable, ReentrancyGuard {
       baseRarity[internalIndex] = rarityAssigned;
       rarityModulus++;
       seedRarity = rarityModulus;
-      attackRarity[internalIndex] = ((raritySeed % 35) + a_seedRarity) % 30;
+      attackRarity[internalIndex] =
+        (((raritySeed % 35) + a_seedRarity) % 40) -
+        4;
       defenseRarity[internalIndex] =
         ((raritySeed % 30) + d_seedRarity + seedRarity) %
         40;
@@ -107,6 +112,31 @@ contract VertekFox is ERC721AQueryable, Ownable, ReentrancyGuard {
       internalIndex++;
     }
     _;
+  }
+
+  modifier onlyRarityUpdaterAddress() {
+    require(rarityUpdaterAddress == msg.sender, 'caller is not the operator');
+    _;
+  }
+
+  function setRarityUpdaterAddress(
+    address _rarityUpdaterAddress
+  ) external onlyOwner {
+    rarityUpdaterAddress = _rarityUpdaterAddress;
+  }
+
+  function setAttack(
+    uint256 _tokenId,
+    uint256 _attack
+  ) external onlyRarityUpdaterAddress {
+    attackRarity[_tokenId] = _attack;
+  }
+
+  function setDefenseRarity(
+    uint256 _tokenId,
+    uint256 _defense
+  ) external onlyRarityUpdaterAddress {
+    defenseRarity[_tokenId] = _defense;
   }
 
   function whitelistMint(

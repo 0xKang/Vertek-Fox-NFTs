@@ -28,7 +28,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.5,
     maxMintAmountPerTx: 5,
   },
-  contractAddress: '0xD5c9DBc14bA49DCf84187878DcDda1E692427D31',
+  contractAddress: '0xE9Fb60609582D3812B0Af7520D66c32b9dbFCb98',
   marketplaceIdentifier: 'VFOX',
   marketplaceConfig: Marketplaces.openSea,
   whitelistAddresses,
